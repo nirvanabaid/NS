@@ -1,0 +1,11 @@
+awk -f pdf.awk filename.tr (calculates pdf)
+
+
+awk -f pdf-graph.awk filename.tr > graph-pdf
+
+gnuplot pdf-graphcode
+
+
+// similarly for Throughput ......
+
+

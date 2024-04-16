@@ -1,0 +1,25 @@
+AnimationInterface anim("MT.xml");
+  MobilityHelper mobility;
+  mobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
+  mobility.Install (c);
+ 
+  Ptr<ConstantPositionMobilityModel> s1 = c.Get (0)->GetObject<ConstantPositionMobilityModel> ();
+  Ptr<ConstantPositionMobilityModel> s2 = c.Get (1)->GetObject<ConstantPositionMobilityModel> ();
+  Ptr<ConstantPositionMobilityModel> s3 = c.Get (2)->GetObject<ConstantPositionMobilityModel> ();
+  Ptr<ConstantPositionMobilityModel> s4 = c.Get (3)->GetObject<ConstantPositionMobilityModel> ();
+  Ptr<ConstantPositionMobilityModel> s5 = c.Get (4)->GetObject<ConstantPositionMobilityModel> ();
+ 
+  s1->SetPosition (Vector ( 0, 0, 0  ));
+  s2->SetPosition (Vector ( 10, 0, 0  ));
+  s3->SetPosition (Vector ( 20, 0, 0 ));
+  s4->SetPosition (Vector ( 30, 0, 0 ));
+  s5->SetPosition (Vector ( 40, 0, 0 ));
+
+Note: 
+Step 1: Run the "tcp_bulk_send.cc" file. It will generate the trace file called "tcp_bulk_send.tr"
+Step 2: Type awk -f throughput-graph.awk tcp_bulk_send.tr > graph-Throughput in the terminal  (throughput-graph.awk and tcp_bulk_send.tr files should be in ns-3.31 folder)
+Step 3: Type gnuplot Throughput-graphcode in the terminal. It generates throughput graph in ns-3.31 folder.
+
+
+./waf --run scratch/first
+./NetAnim
